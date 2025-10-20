@@ -1,0 +1,139 @@
+\documentclass[11pt, a4paper]{memoir}
+
+%% LaTeX Font encoding -- DO NOT CHANGE
+\usepackage[OT1]{fontenc}
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[sc]{mathpazo}
+\usepackage{amsmath,amssymb,amsfonts,mathrsfs}
+\usepackage[amsmath,thmmarks]{ntheorem}
+\usepackage{graphicx}
+
+% Other packages
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{booktabs}
+\usepackage{pdfpages}
+\usepackage{numprint}
+\newcommand{\num}[1]{\numprint{#1}}
+
+\usepackage{lipsum}
+
+
+\usepackage[colorinlistoftodos]{todonotes}
+
+\usepackage{datetime}
+\newdateformat{mydate}{%
+  \monthname[\THEMONTH] \THEDAY, \THEYEAR}
+
+% Load hyperref last
+\usepackage{hyperref}
+
+\usepackage[capitalise, nameinlink]{cleveref}
+\hypersetup{
+   colorlinks=true,
+    linkcolor=blue,
+    citecolor=blue,
+    filecolor=blue,
+    urlcolor=blue,
+    linktoc=all, 
+    }
+    
+\Crefname{equation}{Equation}{Equations}
+\Crefname{figure}{Figure}{Figures}
+\Crefname{tabular}{Table}{Tabels}
+
+
+
+%% Our layout configuration.  DO NOT CHANGE.
+\input{layoutsetup}
+
+\numberwithin{equation}{chapter}
+
+%% English variants
+\newtheorem{theorem}{Theorem}[chapter]
+\newtheorem{example}[theorem]{Example}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+
+%% Proof environment with a small square as a "qed" symbol
+\theoremstyle{nonumberplain}
+\theorembodyfont{\normalfont}
+\theoremsymbol{\ensuremath{\square}}
+\newtheorem{proof}{Proof}
+
+
+%% Document information
+%% ====================
+
+\title{An Empirical Survey of Penguin Migration to Tropical Islands}
+\author{Firstname Lastname}
+\thesistype{Bachelor Thesis}
+\advisors{Supervisor: Prof.\ Dr.\ Sebastian Schelter}
+\supervisors{Advisor: Firstname Lastname}
+\department{Data Engineering for ML (DEEM Lab)}
+\date{\mydate \today}
+
+\begin{document}
+
+\frontmatter
+
+%% Title page.  DO NOT CHANGE.
+\begin{titlingpage}
+  \calccentering{\unitlength}
+  \begin{adjustwidth*}{\unitlength-24pt}{-\unitlength-24pt}
+    \maketitle
+  \end{adjustwidth*}
+\end{titlingpage}
+
+%% The abstract of your thesis.
+\include{content/self-assertion} 
+\thispagestyle{empty}
+\cleardoublepage
+    
+    
+\include{content/0_abstract}
+\thispagestyle{empty}
+\cleardoublepage
+    
+\include{content/0_abstract_de}
+\thispagestyle{empty}
+\cleardoublepage
+
+\input{content/acknowledgement}
+\cleardoublepage
+
+%% TOC with the proper setup, do not change.
+{
+\hypersetup{linkcolor=black}
+\cleartorecto
+\tableofcontents*
+}
+
+% \cleardoublepage
+
+\ 
+\thispagestyle{empty}
+
+\mainmatter
+\input{content/1_introduction}
+\input{content/2_background}
+\input{content/3_related_work}
+\input{content/4_problem_statement}
+\input{content/5_method}
+\input{content/6_experiments}
+\input{content/7_conclusions}
+
+\appendix
+
+\input{content/appendix}
+
+\backmatter
+
+\bibliographystyle{plain}
+\bibliography{refs}
+
+\end{document}
